@@ -5,30 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Compressor</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Image Compressor</h1>
-        <form id="upload-form" method="POST" action="/compress" enctype="multipart/form-data">
-            <label for="image-input">Choose an image:</label>
-            <input type="file" id="image-input" name="image" accept="image/*" required>
+    </header>
+    <div class="container">
+        <form id="image-form" enctype="multipart/form-data" method="POST">
+            <label for="image-upload">Select an image to compress:</label>
+            <input type="file" id="image-upload" name="image" accept="image/*" required>
 
-            <label for="quality-slider">Select Quality:</label>
+            <label for="quality-slider">Select compression quality:</label>
             <input type="range" id="quality-slider" name="quality" min="10" max="100" value="80">
-            <span id="quality-value">80</span>
+            <span id="quality-value">80%</span>
 
             <button type="submit">Compress Image</button>
         </form>
+        <div id="result"></div>
     </div>
-    <script>
-        const slider = document.getElementById('quality-slider');
-        const valueDisplay = document.getElementById('quality-value');
-
-        slider.addEventListener('input', () => {
-            valueDisplay.textContent = slider.value;
-        });
-    </script>
+    <footer>
+        <p>© 2024 All Rights Reserved | Dev: Dushyant</p>
+    </footer>
+    <script src="/animate/script.js"></script>
 </body>
 </html>
